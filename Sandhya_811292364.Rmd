@@ -1,0 +1,58 @@
+---
+title: "FML-Assignment1"
+author: "Sandhya K"
+date: "2024-02-04"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+*1.Dataset import:*
+```{r}
+# Downloading the Interstellar Travel Customer Satisfaction Analysis dataset from Kaggle.
+url <- "https://www.kaggle.com/datasets/anthonytherrien/interstellar-travel-customer-satisfaction-analysis"
+ITCS_data <- read.csv("C://Users//sandh//Downloads//ITCS_data.csv")
+```
+
+```{r}
+# Dataset first few rows
+head(ITCS_data)
+```
+
+*2.Printing-Descriptive Statistics:*
+```{r}
+# Quantitative variables-Summary
+summary(ITCS_data$Age) 
+```
+
+```{r}
+# Categorical variable-Frequency table
+table(ITCS_data$Gender)
+```
+*3. Transforming the Variable:*
+```{r}
+#Square root transformation for one quantitative variable
+ITCS_data$Month_log <- log(ITCS_data$Month)
+# Print or visualize the transformed data
+head(ITCS_data)
+```
+*4. Scatterplot and Histogram:*
+```{r}
+# Scatterplot for two quantitative variables
+plot(ITCS_data$Month, ITCS_data$NumberofCompanions, 
+     main = "Scatterplot of Month vs Number of Companions", 
+     xlab = "Month", ylab = "Number of Companions", col = "blue",
+     xlim = range(na.omit(ITCS_data$Month)))
+```
+#Creating a Histogram
+```{r}
+hist(ITCS_data$CustomerSatisfactionScore, 
+     main = "Histogram of Customer Satisfaction Score", 
+     col = "blue", 
+     xlab = "Customer Satisfaction Score", 
+     ylab = "Frequency")
+```
+
